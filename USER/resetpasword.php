@@ -87,6 +87,7 @@
     <input type="submit" name="reset" value="Reset Password">
 
     <div class="message">
+       <a href="Homepage.php" class="back-link">| BACK |</a>
       <?php
       if (isset($_POST["reset"])) {
         $email = $_POST["email"];

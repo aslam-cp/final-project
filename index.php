@@ -18,13 +18,13 @@
     }
 
     body {
-      background-color: #f4f4f4;
+      background-color: #e6f2ff;
       color: #333;
     }
 
     /* Header */
     header {
-      background-color: #2c3e50;
+      background-color: #3498db;
       color: white;
       padding: 20px 40px;
       display: flex;
@@ -33,7 +33,7 @@
       position: sticky;
       top: 0;
       z-index: 999;
-      animation: slideDown 1s ease-in-out;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
     header h1 {
@@ -54,7 +54,7 @@
     }
 
     nav a:hover {
-      color: #f39c12;
+      color: #f1c40f;
     }
 
     .dropdown {
@@ -64,7 +64,7 @@
     .dropdown-content {
       display: none;
       position: absolute;
-      background-color: #2c3e50;
+      background-color: #3498db;
       min-width: 160px;
       z-index: 1;
       top: 40px;
@@ -77,11 +77,10 @@
       padding: 10px 16px;
       text-decoration: none;
       display: block;
-      transition: background 0.3s;
     }
 
     .dropdown-content a:hover {
-      background-color: #34495e;
+      background-color: #2980b9;
     }
 
     .dropdown:hover .dropdown-content {
@@ -91,15 +90,14 @@
     /* Hero Section */
     .hero {
       height: 100vh;
-      background: url("img/govtech.jpg") center/cover no-repeat;
+      background: linear-gradient(to right, #85c1e9, #d6eaf8);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      color: white;
+      color: #2c3e50;
       padding: 20px;
-      animation: fadeIn 1.5s ease-in-out;
     }
 
     .hero h2 {
@@ -115,27 +113,26 @@
 
     .view-plans-button {
       padding: 12px 25px;
-      background-color: #f39c12;
-      color: black;
+      background-color: #f1c40f;
+      color: #2c3e50;
       border: none;
       border-radius: 30px;
       font-size: 16px;
       cursor: pointer;
-      transition: transform 0.3s;
       text-decoration: none;
       display: inline-block;
+      font-weight: bold;
     }
 
     .view-plans-button:hover {
-      transform: scale(1.05);
+      background-color: #f39c12;
     }
 
     /* Services Section */
     .plans {
-      background: #f9f9f9;
+      background: #ffffff;
       padding: 60px 40px;
       text-align: center;
-      animation: fadeInUp 1.5s ease-in-out;
     }
 
     .plans h2 {
@@ -151,12 +148,11 @@
     }
 
     .plan-card {
-      background: white;
+      background: #f8f9f9;
       border-radius: 15px;
       padding: 25px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
       transition: transform 0.3s ease;
-      animation: fadeIn 1s ease-in;
     }
 
     .plan-card:hover {
@@ -165,7 +161,7 @@
 
     .plan-card h3 {
       font-size: 22px;
-      color: #2980b9;
+      color: #3498db;
       margin-bottom: 15px;
     }
 
@@ -185,8 +181,8 @@
     }
 
     .plan-card button {
-      background-color: #f39c12;
-      color: #000;
+      background-color: #3498db;
+      color: white;
       border: none;
       padding: 12px 25px;
       border-radius: 25px;
@@ -196,38 +192,16 @@
     }
 
     .plan-card button:hover {
-      background-color: #e67e22;
+      background-color: #2980b9;
     }
 
     /* Footer */
     footer {
-      background-color: #2c3e50;
+      background-color: #3498db;
       color: white;
       text-align: center;
       padding: 20px;
       margin-top: 40px;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes slideDown {
-      from { transform: translateY(-100%); }
-      to { transform: translateY(0); }
     }
 
     @media (max-width: 600px) {
@@ -255,16 +229,8 @@
       }
 
       .dropdown-content a {
-        background-color: #2c3e50;
+        background-color: #3498db;
       }
-    }
-  </style>
-
-  <!-- ✅ Override for Black Background -->
-  <style>
-    body {
-      background-color: #000 !important;
-      color: #fff !important;
     }
   </style>
 </head>
@@ -278,18 +244,18 @@
       <a href="#plans">Services</a>
 
       <div class="dropdown">
-        <a href="userreg.php">USER REGISTER</a>
+        <a href="in.php">Registration</a>
         <div class="dropdown-content">
-          <a href="citizen_register.php">Citizen Register</a>
-          <a href="staff_register.php">Staff Register</a>
+          <a href="citizen_register.php"></a>
+          <a href="staff_register.php"></a>
         </div>
       </div>
 
       <div class="dropdown">
-        <a href="#">Login</a>
+        <a href="in.php">Login</a>
         <div class="dropdown-content">
-          <a href="citizen_login.php">Citizen Login</a>
-          <a href="staff_login.php">Staff Login</a>
+          <a href="citizen_login.php"></a>
+          <a href="staff_login.php"></a>
         </div>
       </div>
     </nav>
@@ -330,6 +296,18 @@
 
       <div class="plan-card">
         <h3>Grievance Redressal</h3>
-        <p>Report civic issues and receive
-  </div>
-  </html>
+        <p>Report civic issues and receive timely updates from municipal staff.</p>
+        <span class="price">Free</span>
+        <button>Report Issue</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Citizen Services Portal. All rights reserved.
+  </footer>
+
+</body>
+</html>

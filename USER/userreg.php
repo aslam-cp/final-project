@@ -72,7 +72,7 @@
 <center>
   <div>
     <form method="post">
-      <h1>USER REGISTRATION</h1>
+      <h1>Citizen REGISTRATION</h1>
       <table>
         <tr>
           <td>NAME</td>

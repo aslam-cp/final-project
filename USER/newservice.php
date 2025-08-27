@@ -1,7 +1,15 @@
+<?php
+session_start();
+if (!isset($_SESSION['UserID'])) {
+  header("Location: login.php");
+  exit();
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Officer Registration</title>
+  <title>Create Service Request</title>
   <style>
     body {
       background: #000;
@@ -36,8 +44,8 @@
       font-weight: bold;
       color: #555;
     }
-    input[type="email"],
-    input[type="password"] {
+    input[type="text"],
+    input[type="number"] {
       width: 100%;
       padding: 8px 10px;
       border: 1px solid #ccc;
@@ -46,7 +54,7 @@
     }
     input[type="submit"] {
       width: 100%;
-      background-color: #4CAF50;
+      background-color: #007BFF;
       color: white;
       border: none;
       padding: 12px;
@@ -57,7 +65,7 @@
       transition: background-color 0.3s ease;
     }
     input[type="submit"]:hover {
-      background-color: #45a049;
+      background-color: #0056b3;
     }
     .message {
       margin-top: 20px;
@@ -71,26 +79,34 @@
 <center>
   <div>
     <form method="post">
-      <h1>OFFICER REGISTRATION</h1>
+      <h1>CREATE SERVICE REQUEST</h1>
       <table>
         <tr>
-          <td>EMAIL</td>
-          <td><input type="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Valid email format"></td>
+          <td>SERVICE TYPE</td>
+          <td><input type="text" name="ServiceType" placeholder="e.g. Birth Certificate" required></td>
         </tr>
         <tr>
-          <td>PASSWORD</td>
-          <td><input type="password" name="password" required pattern="(?=.*[A-Z])(?=.*[@#$%^&+=])(?=.*\d)[A-Za-z\d@#$%^&+=]{8,}" title="Min 8 chars, 1 uppercase, 1 special, 1 number"></td>
+          <td>DESCRIPTION</td>
+          <td><input type="text" name="Description" placeholder="Brief description..." required></td>
+        </tr>
+        <tr>
+          <td>FEE AMOUNT</td>
+          <td><input type="number" name="FeeAmount" placeholder="e.g. 100" required></td>
         </tr>
       </table>
-      <input type="submit" name="submit" value="REGISTER">
-      <a href=".." class="back-link">| BACK |</a>
+      <input type="submit" name="submit" value="SUBMIT REQUEST">
     </form>
 
     <div class="message">
+      <a href="Homepage.php" class="back-link">| BACK |</a>
       <?php
       if (isset($_POST["submit"])) {
-        $email = $_POST["email"];
-        $password = $_POST["password"];
+        $UserID = $_SESSION['UserID'];
+        $ServiceType = trim($_POST['ServiceType']);
+        $Description = trim($_POST['Description']);
+        $FeeAmount = intval($_POST['FeeAmount']);
+        $Status = 'Pending';
+        $CreatedAt = date('Y-m-d H:i:s');
 
         // DB Connection
         $con = new mysqli("localhost", "root", "", "db_ksii");
@@ -98,11 +114,12 @@
           die("Connection failed: " . $con->connect_error);
         }
 
-        $stmt = $con->prepare("INSERT INTO tbl_officer (email, password) VALUES (?, ?)");
-        $stmt->bind_param("ss", $email, $password);
+        $stmt = $con->prepare("INSERT INTO service_requests (UserID, ServiceType, Description, FeeAmount, Status, CreatedAt)
+                               VALUES (?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("ississ", $UserID, $ServiceType, $Description, $FeeAmount, $Status, $CreatedAt);
 
         if ($stmt->execute()) {
-          echo "✅ Officer registered successfully.";
+          echo "✅ Request submitted successfully!";
         } else {
           echo "❌ Error: " . $stmt->error;
         }

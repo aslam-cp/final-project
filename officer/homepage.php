@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADMIN Dashboard</title>
+    <title>Officer Dashboard</title>
     <style>
         * {
             margin: 0;
@@ -100,15 +100,14 @@
         <h2>Dashboard</h2>
         <ul>
             <li><a href="myprofile.php">MyProfile</a></li>
-            <li><a href="users.html">Edit profile</a></li>
-            <li><a href="settings.html"></a>#</li>
+            <li><a href="viewrequest.php">View Request</a></li>
             <li><a href="logout.php">Logout</a>#</li>
         </ul>
     </div>
 
     <div class="main-content">
         <div class="topbar">
-            <h1>ADMIN Dashboard</h1>
+            <h1>Officer Dashboard</h1>
             <input type="search" placeholder="Search..." style="padding:5px; border-radius:5px; border:1px solid #ccc;">
         </div>
 
