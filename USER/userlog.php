@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Login</title>
+    <title>Citizen Login</title>
     <style>
         body {
             background: #000;
